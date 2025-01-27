@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 15:52:43 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/01/27 15:27:09 by hcarrasq         ###   ########.fr       */
+/*   Created: 2024/10/29 16:38:27 by hcarrasq          #+#    #+#             */
+/*   Updated: 2024/11/18 17:46:40 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	t_stack stack_a;
-	t_stack stack_b;
-	char **str;
-	int i;
+	size_t		i;
+	char		*final;
+	const char	*inicio;
 
+	if (dest == src || n == 0)
+		return (dest);
+	final = (char *)dest;
+	inicio = (const char *)src;
+	if (n == 0)
+		return (dest);
 	i = 0;
-	initialize_stack(&stack_a, &stack_b);
-	if (argc == 1)
-		return 0;
-	else if (argc == 2)
-		str = ft_split(argv[1], ' ');
-	else
-		str = argv;
-	while (str[i])
+	while (i < n)
 	{
-		if (!(ft_isnbr(str[i])))
-			return 0;
-		/* ft_lstnew(atoi(str[i])); */
+		final[i] = inicio[i];
+		i++;
 	}
+	return (final);
 }

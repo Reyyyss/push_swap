@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 15:52:43 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/01/27 15:27:09 by hcarrasq         ###   ########.fr       */
+/*   Created: 2024/10/30 15:33:48 by hcarrasq          #+#    #+#             */
+/*   Updated: 2024/11/18 10:52:22 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	*ft_calloc(size_t count, size_t size)
 {
-	t_stack stack_a;
-	t_stack stack_b;
-	char **str;
-	int i;
+	void	*temp;
 
-	i = 0;
-	initialize_stack(&stack_a, &stack_b);
-	if (argc == 1)
-		return 0;
-	else if (argc == 2)
-		str = ft_split(argv[1], ' ');
-	else
-		str = argv;
-	while (str[i])
-	{
-		if (!(ft_isnbr(str[i])))
-			return 0;
-		/* ft_lstnew(atoi(str[i])); */
-	}
+	if (count != 0 && (size > (size_t)(-1) / count))
+		return (NULL);
+	temp = malloc(count * size);
+	if (!temp)
+		return (NULL);
+	ft_bzero(temp, count * size);
+	return (temp);
 }

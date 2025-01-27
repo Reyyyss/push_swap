@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 15:52:43 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/01/27 15:27:09 by hcarrasq         ###   ########.fr       */
+/*   Created: 2024/10/28 14:19:55 by hcarrasq          #+#    #+#             */
+/*   Updated: 2025/01/16 11:29:15 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+int	ft_atoi(const char *nptr)
 {
-	t_stack stack_a;
-	t_stack stack_b;
-	char **str;
-	int i;
+	int	count;
+	int	i;
+	int	num;
 
+	num = 0;
 	i = 0;
-	initialize_stack(&stack_a, &stack_b);
-	if (argc == 1)
-		return 0;
-	else if (argc == 2)
-		str = ft_split(argv[1], ' ');
-	else
-		str = argv;
-	while (str[i])
+	count = 1;
+	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ')
 	{
-		if (!(ft_isnbr(str[i])))
-			return 0;
-		/* ft_lstnew(atoi(str[i])); */
+		i++;
 	}
+	if (nptr[i] == '+' || nptr[i] == '-')
+	{
+		if (nptr[i] == '-')
+			count *= -1;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		num = num * 10 + (nptr[i] - 48);
+		i++;
+	}
+	return (num * count);
 }

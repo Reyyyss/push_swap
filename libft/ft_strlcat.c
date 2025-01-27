@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 15:52:43 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/01/27 15:27:09 by hcarrasq         ###   ########.fr       */
+/*   Created: 2024/11/18 15:40:15 by hcarrasq          #+#    #+#             */
+/*   Updated: 2024/11/18 17:52:46 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	t_stack stack_a;
-	t_stack stack_b;
-	char **str;
-	int i;
+	size_t	destl;
+	size_t	sorcl;
+	size_t	i;
 
 	i = 0;
-	initialize_stack(&stack_a, &stack_b);
-	if (argc == 1)
-		return 0;
-	else if (argc == 2)
-		str = ft_split(argv[1], ' ');
-	else
-		str = argv;
-	while (str[i])
+	destl = ft_strlen(dst);
+	sorcl = ft_strlen(src);
+	if (size <= destl)
+		return (size + sorcl);
+	while (destl + i + 1 < size && src[i] != '\0')
 	{
-		if (!(ft_isnbr(str[i])))
-			return 0;
-		/* ft_lstnew(atoi(str[i])); */
+		dst[destl + i] = src[i];
+		i++;
 	}
+	dst[destl + i] = '\0';
+	return (destl + sorcl);
 }

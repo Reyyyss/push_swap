@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 15:52:43 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/01/27 15:27:09 by hcarrasq         ###   ########.fr       */
+/*   Created: 2024/10/29 17:13:21 by hcarrasq          #+#    #+#             */
+/*   Updated: 2024/11/18 10:54:44 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_stack stack_a;
-	t_stack stack_b;
-	char **str;
-	int i;
+	char	*t_dst;
+	char	*t_src;
+	size_t	i;
 
+	t_dst = (char *)dest;
+	t_src = (char *)src;
 	i = 0;
-	initialize_stack(&stack_a, &stack_b);
-	if (argc == 1)
-		return 0;
-	else if (argc == 2)
-		str = ft_split(argv[1], ' ');
-	else
-		str = argv;
-	while (str[i])
+	if (dest == src || n == 0)
+		return (dest);
+	if (t_dst >= t_src)
 	{
-		if (!(ft_isnbr(str[i])))
-			return 0;
-		/* ft_lstnew(atoi(str[i])); */
+		while (n-- > 0)
+			t_dst[n] = t_src[n];
 	}
+	else
+	{
+		while (i < n)
+		{
+			t_dst[i] = t_src[i];
+			i++;
+		}
+	}
+	return (dest);
 }

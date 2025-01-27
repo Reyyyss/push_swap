@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 15:52:43 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/01/27 15:27:09 by hcarrasq         ###   ########.fr       */
+/*   Created: 2024/10/30 13:42:10 by hcarrasq          #+#    #+#             */
+/*   Updated: 2024/11/18 17:49:18 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_stack stack_a;
-	t_stack stack_b;
-	char **str;
-	int i;
+	size_t			i;
+	unsigned char	*frase;
+	unsigned char	*temp;
 
 	i = 0;
-	initialize_stack(&stack_a, &stack_b);
-	if (argc == 1)
-		return 0;
-	else if (argc == 2)
-		str = ft_split(argv[1], ' ');
-	else
-		str = argv;
-	while (str[i])
+	frase = (unsigned char *)s;
+	if (!s)
 	{
-		if (!(ft_isnbr(str[i])))
-			return 0;
-		/* ft_lstnew(atoi(str[i])); */
+		temp = (unsigned char *)s;
+		*temp = 0;
 	}
+	if (!frase)
+		return (NULL);
+	while (i < n)
+	{
+		if (frase[i] == (unsigned char)c)
+			return ((void *)&frase[i]);
+		i++;
+	}
+	return (NULL);
 }

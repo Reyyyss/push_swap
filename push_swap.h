@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: henrique-reis <henrique-reis@student.42    +#+  +:+       +#+        */
+/*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:39 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/01/14 18:05:26 by henrique-re      ###   ########.fr       */
+/*   Updated: 2025/01/16 14:58:20 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@
 typedef struct s_node
 {
 	int	value;
-	struct s_node *next;
-	struct s_node *prev;
+	struct s_node *next;	
 }	t_node;
 
 typedef struct s_stack
@@ -34,5 +33,6 @@ typedef struct s_stack
 }	t_stack;
 
 int	ft_isnbr(char *nbr);
+void	initialize_stack(t_stack *stack_a, t_stack *stack_b);
 
 #endif
