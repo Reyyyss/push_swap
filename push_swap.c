@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:52:43 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/01/27 15:27:09 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/01/28 16:51:29 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int main(int argc, char **argv)
 {
-	t_stack stack_a;
-	t_stack stack_b;
+	static	t_stack stack_a;
+	static	t_stack stack_b;
 	char **str;
 	int i;
 
-	i = 0;
+	i = 1;
 	initialize_stack(&stack_a, &stack_b);
 	if (argc == 1)
 		return 0;
@@ -31,6 +31,8 @@ int main(int argc, char **argv)
 	{
 		if (!(ft_isnbr(str[i])))
 			return 0;
-		/* ft_lstnew(atoi(str[i])); */
+		ft_lstnew(atoi(str[i]));
 	}
 }
+
+void	organize_stack()

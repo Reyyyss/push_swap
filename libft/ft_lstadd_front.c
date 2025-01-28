@@ -6,14 +6,17 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:04:57 by hcarrasq          #+#    #+#             */
-/*   Updated: 2024/11/19 17:05:08 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/01/28 16:41:28 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_node **lst, t_node *new)
 {
+	t_node *last;
+
+	last = *lst;
 	new->next = *lst;
 	*lst = new;
 }
