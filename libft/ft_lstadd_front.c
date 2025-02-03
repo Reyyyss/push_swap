@@ -6,15 +6,15 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:04:57 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/01/28 16:41:28 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:52:15 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	ft_lstadd_front(t_node **lst, t_node *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_node *last;
+	t_list *last;
 
 	last = *lst;
 	new->next = *lst;

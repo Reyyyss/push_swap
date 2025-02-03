@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 14:19:55 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/02/03 17:37:07 by hcarrasq         ###   ########.fr       */
+/*   Created: 2024/11/28 16:12:51 by hcarrasq          #+#    #+#             */
+/*   Updated: 2025/02/03 17:18:22 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atoi(const char *nptr)
+int	ft_putstr(char *str)
 {
 	int	count;
-	int	i;
-	long	num;
-	long	max;
 
-	max = (long)INT_MAX + 1;
-	num = 0;
-	i = 0;
-	count = 1;
-	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ')
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	if (!str)
+		return (ft_putstr("(null)"));
+	count = 0;
+	while (*str)
 	{
-		if (nptr[i++] == '-')
-			count *= -1;
+		write(1, &*str, 1);
+		count++;
+		str++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		if (num > max)
-			break;
-		num = num * 10 + (nptr[i] - 48);
-		i++;
-	}
-	return (num * count);
+	return (count);
 }

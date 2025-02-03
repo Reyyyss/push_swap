@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:39 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/01/16 14:58:20 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:59:19 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ typedef struct s_stack
 
 int	ft_isnbr(char *nbr);
 void	initialize_stack(t_stack *stack_a, t_stack *stack_b);
+void	ft_lstadd_front(t_stack **lst, t_ *new);
+t_node	*ft_lstnew(int content);
 
 #endif

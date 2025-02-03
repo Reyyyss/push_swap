@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_prtptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 14:19:55 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/02/03 17:37:07 by hcarrasq         ###   ########.fr       */
+/*   Created: 2024/11/28 15:56:08 by hcarrasq          #+#    #+#             */
+/*   Updated: 2025/02/03 17:18:34 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atoi(const char *nptr)
+int	ft_prtptr(unsigned long long int n, char *base, int flag)
 {
 	int	count;
-	int	i;
-	long	num;
-	long	max;
+	int	rmd;
 
-	max = (long)INT_MAX + 1;
-	num = 0;
-	i = 0;
-	count = 1;
-	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ')
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	count = 0;
+	if (n == 0)
+		return (write(1, "(nil)", 5));
+	if (flag != 1)
 	{
-		if (nptr[i++] == '-')
-			count *= -1;
+		write (1, "0x", 2);
+		count = 2;
+		flag = 1;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		if (num > max)
-			break;
-		num = num * 10 + (nptr[i] - 48);
-		i++;
-	}
-	return (num * count);
+	if (n >= 16)
+		count += ft_prtptr(n / 16, base, 1);
+	rmd = (n % 16);
+	write(1, &base[rmd], 1);
+	count++;
+	return (count);
 }

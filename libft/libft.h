@@ -6,18 +6,27 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 13:15:17 by hcarrasq          #+#    #+#             */
-/*   Updated: 2024/11/21 13:45:17 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:49:59 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# define LHEX "0123456789abcdef"
+# define UHEX "0123456789ABCDEF"
+
+# ifndef BUFFER_SIZE
+# define BUFFER_SIZE 2
+# endif
+
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
 # include <limits.h>
 # include <stdio.h>
+# include <stdarg.h>
+# include <fcntl.h>
 
 typedef struct s_list
 {
@@ -29,7 +38,7 @@ size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s1);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
-int		ft_atoi(const char *nptr);
+long	ft_atoi(const char *nptr);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
@@ -70,4 +79,19 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+int	ft_prtptr(unsigned long long n, char *base, int flag);
+int	ft_putchar(int c);
+int	ft_putnbr_base(long nbr, int lbase, char *base);
+int	ft_putstr(char *str);
+int	ft_checkpercentage(const char *str, va_list	args);
+int	ft_printf(const char *str, ...);
+char	*get_next_line(int fd);
+size_t	ft_strlenbuf(char *str);
+char	*ft_strjoinbuf(char *buf, char *str);
+void	buf_cleaner(char *str);
+char	*get_next_line(int fd);
+size_t	ft_strlenbuf2(char *str);
+char	*ft_strjoinbuf2(char *buf, char *str);
+void	buf_cleaner(char *str);
+
 #endif

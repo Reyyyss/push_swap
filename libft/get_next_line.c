@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 14:19:55 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/02/03 17:37:07 by hcarrasq         ###   ########.fr       */
+/*   Created: 2024/12/17 11:59:54 by hcarrasq          #+#    #+#             */
+/*   Updated: 2025/02/03 17:17:59 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atoi(const char *nptr)
+char	*get_next_line(int fd)
 {
-	int	count;
-	int	i;
-	long	num;
-	long	max;
+	char		*str;
+	static char	buf [BUFFER_SIZE + 1];
 
-	max = (long)INT_MAX + 1;
-	num = 0;
-	i = 0;
-	count = 1;
-	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ')
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	str = NULL;
+	while (buf[0] || read(fd, buf, BUFFER_SIZE) > 0)
 	{
-		if (nptr[i++] == '-')
-			count *= -1;
+		str = ft_strjoin(buf, str);
+		if (!str)
+			return (NULL);
+		buf_cleaner(buf);
+		if (str[ft_strlen(str) - 1] == '\n')
+			return (str);
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		if (num > max)
-			break;
-		num = num * 10 + (nptr[i] - 48);
-		i++;
-	}
-	return (num * count);
+	return (str);
 }

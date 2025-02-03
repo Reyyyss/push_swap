@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 14:19:55 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/02/03 17:37:07 by hcarrasq         ###   ########.fr       */
+/*   Created: 2024/11/26 15:24:20 by hcarrasq          #+#    #+#             */
+/*   Updated: 2025/02/03 17:18:26 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atoi(const char *nptr)
+int	ft_putnbr_base(long nbr, int lbase, char *base)
 {
 	int	count;
-	int	i;
-	long	num;
-	long	max;
+	int	rmd;
 
-	max = (long)INT_MAX + 1;
-	num = 0;
-	i = 0;
-	count = 1;
-	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ')
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	count = 0;
+	if (nbr < 0)
 	{
-		if (nptr[i++] == '-')
-			count *= -1;
+		count += write(1, "-", 1);
+		nbr = -nbr;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		if (num > max)
-			break;
-		num = num * 10 + (nptr[i] - 48);
-		i++;
-	}
-	return (num * count);
+	if (nbr >= lbase)
+		count += ft_putnbr_base(nbr / lbase, lbase, base);
+	rmd = (nbr % lbase);
+	write(1, &base[rmd], 1);
+	count++;
+	return (count);
 }
