@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:05 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/03 18:00:29 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/04 18:30:52 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,23 @@ int	ft_isnbr(char *nbr)
 	return 1;
 }
 
-t_node	*ft_lstnew(int content)
+int	check_dups(char *nbr)
 {
-	t_list	*elm;
+	int	i;
+	int	l;
 
-	elm = malloc(sizeof(t_list));
-	if (!elm)
-		return (NULL);
-	elm->content = content;
-	elm->next = NULL;
-	return (elm);
-}
-void	ft_lstadd_front(t_list **lst, t_node *new)
-{
-	t_list *last;
-
-	last = *lst;
-	new->next = *lst;
-	*lst = new;
+	i = 0;
+	l = 0;
+	while (nbr[i])
+	{
+		while (nbr[l])
+		{
+			if (nbr[i] == nbr[l])
+				return 0;
+			l++;
+		}
+		l = 0;
+		i++;
+	}
+	return 1;
 }
