@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:52:43 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/04 18:23:52 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/05 12:32:24 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ int main(int argc, char **argv)
 
 	i = 1;
 	initialize_stack(&stack_a, &stack_b);
-	check_args(argc, argv);
+	if (check_args(argc, argv) > 1)
+		return 0;
 }
 
-void	check_args(int argc, char **argv)
+static int	check_args(int argc, char **argv)
 {
-	static	t_stack stack_a;
-	static	t_stack stack_b;
 	char **str;
 	int i;
 
@@ -41,9 +40,10 @@ void	check_args(int argc, char **argv)
 	while (str[i])
 	{
 		if (!(ft_isnbr(str[i])))
-			return 0;
+			return (write(2, "Error\n", 7), 2);
 		else if (!(check_dups(str[i])))
-			return 0;
-		
+			return (write(2, "Error\n", 7), 2);
+		else if (!(ft_atol(str[i])))
+			return (write(2, "Error\n", 7), 2);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:39 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/04 16:17:32 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:31:09 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 
 int	ft_isnbr(char *nbr);
 void	initialize_stack(t_stack *stack_a, t_stack *stack_b);
-void	ft_lstadd_front(t_stack *lst, t_ *new);
+void	ft_lstadd_front(t_stack *lst, t_node *new);
 t_node	*ft_lstnew(int content);
 
 #endif
