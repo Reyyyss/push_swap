@@ -6,11 +6,11 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:05 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/05 12:10:32 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:28:21 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	initialize_stack(t_stack *stack_a, t_stack *stack_b)
 {
@@ -46,7 +46,7 @@ int	check_dups(char *nbr)
 	int	l;
 
 	i = 0;
-	l = 0;
+	l = 1;
 	while (nbr[i])
 	{
 		while (nbr[l])
@@ -55,7 +55,7 @@ int	check_dups(char *nbr)
 				return 0;
 			l++;
 		}
-		l = 0;
+		l = 1;
 		i++;
 	}
 	return 1;

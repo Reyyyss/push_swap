@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 11:01:50 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/02/03 17:18:39 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/06 15:59:02 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_checkpercentage(const char *str, va_list	args)
 	return (count);
 }
 
-int main() {
+/* int main() {
     // Test case inputs
     int num = 12345;
     unsigned int u_num = 123456789;
@@ -102,4 +102,4 @@ int main() {
     ft_printf("Empty String: %s\n", empty_str);
 
     return 0;
-}
+} */
