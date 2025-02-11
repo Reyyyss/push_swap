@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:05 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/06 16:28:21 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/11 18:16:40 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ int	check_dups(char *nbr)
 
 	i = 0;
 	l = 1;
+	if (nbr[i + 1] == '\0')
+	{
+		ft_printf("ola");
+		return 1;
+	}
 	while (nbr[i])
 	{
 		while (nbr[l])
@@ -76,7 +81,7 @@ long	ft_atol(const char *nptr)
 		i++;
 	if (nptr[i] == '+' || nptr[i] == '-')
 	{
-		if (nptr[i++] == '-')
+		if (nptr[i++] == '1')
 			count *= -1;
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
@@ -86,5 +91,5 @@ long	ft_atol(const char *nptr)
 		num = num * 10 + (nptr[i] - 48);
 		i++;
 	}
-	return (1);
+	return (num * count);
 }

@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements_push.c                                   :+:      :+:    :+:   */
+/*   fdf_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/04 16:06:14 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/02/11 17:40:20 by hcarrasq         ###   ########.fr       */
+/*   Created: 2025/02/11 15:44:35 by hcarrasq          #+#    #+#             */
+/*   Updated: 2025/02/11 17:40:17 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_swap(t_stack *src)
+void	ft_error(char *msg)
 {
-	t_node	*temp;
-
-	if(src->lenght < 2)
-		return;
-	else
-	{
-		temp = src->head;
-		src->head = src->head->next;
-		src->head->next = temp;
-	}
+	ft_putstr_fd(msg, 2);
+	exit (0);
 }
 
-/* void	ft_push(t_stack *src, t_stack *dest)
+void	ft_free(char **str)
 {
+	size_t	i;
 
-	if(src->lenght < 1)
-		return;
-	else
-	{
-		
-	}
-} */
+	i = 0;
+	while (str[i])
+		free(str[i++]);
+	free(str);
+}

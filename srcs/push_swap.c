@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:52:43 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/06 16:33:28 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/11 18:15:23 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,16 @@ int main(int argc, char **argv)
 	static	t_stack stack_a;
 	static	t_stack stack_b;
 	int i;
+	char	**str;
 
 	i = 1;
 	initialize_stack(&stack_a, &stack_b);
-	if (check_args(argc, argv) > 1)
-		return 0;
-	else 
-	{
-		
-	}
+	str = check_args(argc, argv);
+	make_stack(&stack_a, str);
+	print_stack(&stack_a, 'a');
 }
 
-int	check_args(int argc, char **argv)
+char	**check_args(int argc, char **argv)
 {
 	char **str;
 	int i;
@@ -39,20 +37,31 @@ int	check_args(int argc, char **argv)
 	else if (argc == 2)
 		str = ft_split(argv[1], ' ');
 	else
+		str = &argv[1];
+	while (str[++i])
 	{
-		i = 1;
-		str = argv;
-	}
-	while (str[i])
-	{
-		write(1, "yes", 4);
 		if (!(ft_isnbr(str[i])))
-			return (write(2, "Error\n", 8), 2);
+			ft_error("Error1\n");		
 		else if (check_dups(str[i]))
-			return (write(2, "Error\n", 8), 2);
-		else if (!(ft_atol(str[i])))
-			return (write(2, "Error\n", 8), 2);
+			ft_error("Error2\n");
 		i++;
 	}
-	return (1);
+	return (str);
+}
+
+void	make_stack(t_stack *stack, char **str)
+{
+	int	i;
+	int	value;
+	t_node	*node;
+	i = 0;
+	while (str[i])
+	{
+		value = ft_atol(str[i]);
+		if (value > INT_MAX || value < INT_MIN)
+			return (write(2, "Error\n", 8), ft_free(str), stack_clear(stack));
+		node = ft_lst_new(value);
+		ft_lst_addback(stack, node);
+		i++;
+	}
 }
