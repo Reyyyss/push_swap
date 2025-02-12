@@ -6,20 +6,23 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:05 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/11 18:16:40 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:04:05 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	initialize_stack(t_stack *stack_a, t_stack *stack_b)
+bool	check_nbr(int argc, char **argv)
 {
-	stack_a->head = NULL;
-	stack_a->tail = NULL;
-	stack_b->head = NULL;
-	stack_b->tail = NULL;
-	stack_a->lenght = 0;
-	stack_b->lenght = 0;
+	char	**nbr;
+	int	i;
+
+	i = 0;
+	while (i < argc)
+	{
+		nbr = ft_split(argv[i], ' ');
+		
+	}
 }
 
 int	ft_isnbr(char *nbr)
@@ -49,7 +52,6 @@ int	check_dups(char *nbr)
 	l = 1;
 	if (nbr[i + 1] == '\0')
 	{
-		ft_printf("ola");
 		return 1;
 	}
 	while (nbr[i])

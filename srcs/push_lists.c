@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:25:04 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/02/11 17:40:23 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:12:14 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_node	*ft_lst_new(int content)
 {
 	t_node	*elm;
 
-	elm = malloc(sizeof(t_list));
+	elm = malloc(sizeof(t_node));
 	if (!elm)
 		return (NULL);
 	elm->value = content;
