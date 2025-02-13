@@ -6,41 +6,15 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:05 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/12 18:04:05 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:09:45 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-bool	check_nbr(int argc, char **argv)
-{
-	char	**nbr;
-	int	i;
-
-	i = 0;
-	while (i < argc)
-	{
-		nbr = ft_split(argv[i], ' ');
-		
-	}
-}
-
 int	ft_isnbr(char *nbr)
 {
-	int	i;
-
-	i = 0;
-	if (!nbr || !nbr[0])
-		return 0;
-	if (nbr[0] == '-' || nbr[0] == '+')
-		i++;
-	while (nbr[i])
-	{	
-		if (!(ft_isdigit(nbr[i])))
-			return 0;
-		i++;
-	}	
-	return 1;
+	
 }
 
 int	check_dups(char *nbr)
@@ -94,4 +68,30 @@ long	ft_atol(const char *nptr)
 		i++;
 	}
 	return (num * count);
+}
+
+bool	ft_valid(int argc, char **argv)
+{
+	char	**nbr;
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < argc)
+	{
+		nbr = ft_split(argv[i], ' ');
+		j = 0;
+		while (nbr[j])
+		{
+			if (!ft_isnbr(nbr[j]))
+			{
+				ft_free(nbr);
+				return (false);
+			}
+			j++;
+		}
+		ft_free(nbr);
+		i++;
+	}
+	return (true);
 }

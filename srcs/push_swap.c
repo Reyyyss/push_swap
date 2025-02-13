@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:52:43 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/12 18:05:02 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:17:33 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ int main(int argc, char **argv)
 	int	i;
 
 	i = 1;
-	stack_a = make_stack(argv, argc - 1);
+	stack_a = make_stack(&argv[i], argc - 1);
+	if (!stack_a.head)
+		ft_error("Error\n");
 }
 
-char	**check_args(int argc, char **argv)
+/* char	**check_args(int argc, char **argv)
 {
 	char **str;
 	int i;
@@ -37,27 +39,23 @@ char	**check_args(int argc, char **argv)
 		i++;
 	}
 	return (str);
-}
+} */
 
-t_stack	make_stack(char **argv, int argc)
+t_stack	check_args(char **argv, int argc)
 {
 	char	**str;
 	t_stack	stack;
 	int	i;
 
 	i = 0;
-	if (argc == 1 || !ft_isnbr())
+	if (argc == 1 || !ft_valid(argc, argv))
 	{
 		stack_clear(&stack);
 		return(stack);
-		
 	}
-	while (str[i])
+	while (i < argc)
 	{
-		
-		node = ft_lst_new(value);
-		ft_lst_addback(&stack, node);
-		i++;
+		str = ft_split(argv[i])
 	}
 	return (stack);
 }
