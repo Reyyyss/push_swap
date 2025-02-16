@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: henrique-reis <henrique-reis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:39 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/12 18:01:16 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/16 17:38:02 by henrique-re      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		initialize_stack(t_stack *stack_a, t_stack *stack_b);
 void		ft_lst_addfront(t_stack *lst, t_node *new);
 void		ft_lst_addback(t_stack *lst, t_node *new);
 t_node		*ft_lst_new(int content);
-char		**check_args(int argc, char **argv);
+t_stack		check_args(char **argv, int argc);
 long		ft_atol(const char *nptr);
 int			check_dups(char *nbr);
 void		stack_clear(t_stack *lst);

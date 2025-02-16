@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: henrique-reis <henrique-reis@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:52:43 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/13 15:17:33 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/16 17:38:36 by henrique-re      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 	int	i;
 
 	i = 1;
-	stack_a = make_stack(&argv[i], argc - 1);
+	stack_a = check_args(&argv[i], argc - 1);
 	if (!stack_a.head)
 		ft_error("Error\n");
 }
@@ -48,6 +48,7 @@ t_stack	check_args(char **argv, int argc)
 	int	i;
 
 	i = 0;
+	stack = (t_stack){0};
 	if (argc == 1 || !ft_valid(argc, argv))
 	{
 		stack_clear(&stack);
@@ -55,7 +56,12 @@ t_stack	check_args(char **argv, int argc)
 	}
 	while (i < argc)
 	{
-		str = ft_split(argv[i])
+		str = ft_split(argv[i], ' ');
+		if (!str)
+		{
+			stack_clear(&stack);
+			break;
+		}
 	}
 	return (stack);
 }
