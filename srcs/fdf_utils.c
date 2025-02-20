@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 15:44:35 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/02/11 17:40:17 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/19 13:46:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,19 @@ void	ft_free(char **str)
 	while (str[i])
 		free(str[i++]);
 	free(str);
+}
+
+void	full_clear(char **str, t_stack *stack)
+{
+	if(!str)
+	{
+		stack_clear(&stack);
+		break;
+	}
+	else
+	{
+		ft_free(str);
+		stack_clear(&stack);
+		break;
+	}
 }

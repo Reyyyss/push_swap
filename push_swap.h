@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: henrique-reis <henrique-reis@student.42    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:39 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/16 17:38:02 by henrique-re      ###   ########.fr       */
+/*   Updated: 2025/02/19 13:24:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,18 @@ typedef struct s_stack
 	t_node *tail;
 }	t_stack;
 
-int			ft_isnbr(char *nbr);
+bool		ft_isnbr(char *nbr);
+bool		check_dups(char *nbr);
+bool		make_stack(char **str, int argc);
+t_stack		check_args(char **argv, int argc);
 void		initialize_stack(t_stack *stack_a, t_stack *stack_b);
 void		ft_lst_addfront(t_stack *lst, t_node *new);
 void		ft_lst_addback(t_stack *lst, t_node *new);
 t_node		*ft_lst_new(int content);
-t_stack		check_args(char **argv, int argc);
 long		ft_atol(const char *nptr);
-int			check_dups(char *nbr);
 void		stack_clear(t_stack *lst);
 void		ft_error(char *msg);
 void		print_stack(t_stack *stack, char id);
-t_stack		*make_stack(char **str, int argc);
 void		ft_free(char **str);
 
 #endif

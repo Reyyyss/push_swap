@@ -3,43 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   aux_pswap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:05 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/13 15:09:45 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/19 13:44:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_isnbr(char *nbr)
-{
-	
-}
-
-int	check_dups(char *nbr)
+bool	ft_isnbr(char *nbr)
 {
 	int	i;
-	int	l;
 
 	i = 0;
-	l = 1;
-	if (nbr[i + 1] == '\0')
-	{
-		return 1;
-	}
+	if (nbr[i] == '+' || nbr[i] == '-')
+		i++;
 	while (nbr[i])
 	{
-		while (nbr[l])
-		{
-			if (nbr[i] == nbr[l])
-				return 0;
-			l++;
-		}
-		l = 1;
+		if (!ft_isdigit(nbr[i]))
+			return (false);
 		i++;
 	}
-	return 1;
+	return (true);
+}
+
+bool	check_dups(t_stack *stack, int nbr)
+{
+	t_node	*node;
+
+	node = stack->head;
+	while (node)
+	{
+		if (node->value == nbr)
+			return (false);
+		node = node->next;
+	}
+	return (true);
 }
 
 long	ft_atol(const char *nptr)
