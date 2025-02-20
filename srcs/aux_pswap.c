@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   aux_pswap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:05 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/19 13:44:47 by marvin           ###   ########.fr       */
+/*   Updated: 2025/02/20 17:44:33 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ long	ft_atol(const char *nptr)
 		i++;
 	if (nptr[i] == '+' || nptr[i] == '-')
 	{
-		if (nptr[i++] == '1')
 			count *= -1;
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')

@@ -6,7 +6,7 @@
 #    By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/16 11:31:27 by hcarrasq          #+#    #+#              #
-#    Updated: 2025/02/11 17:52:56 by hcarrasq         ###   ########.fr        #
+#    Updated: 2025/02/20 15:20:54 by hcarrasq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS_DIR = srcs
 
 OBJS	= $(SRCS:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 CC = cc
 
 all:	$(NAME)

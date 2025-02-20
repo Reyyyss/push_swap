@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:25:04 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/02/12 13:12:14 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/20 17:22:11 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,13 @@ void	ft_lst_addback(t_stack *lst, t_node *new)
 		new->next = NULL;
 		new->prev = NULL;
 	}
-	lst->tail->next = new;
-	new->prev = lst->tail;
-	new->next = NULL;
-	lst->tail = new;
+	else
+	{
+		lst->tail->next = new;
+		new->prev = lst->tail;
+		new->next = NULL;
+		lst->tail = new;
+	}
 	lst->lenght++;
 }
 
