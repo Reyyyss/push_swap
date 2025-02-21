@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:05 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/20 17:44:33 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/21 15:06:51 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,7 @@ long	ft_atol(const char *nptr)
 	int	count;
 	int	i;
 	long	num;
-	long	max;
 
-	max = (long)INT_MAX + 1;
 	num = 0;
 	i = 0;
 	count = 1;
@@ -57,14 +55,16 @@ long	ft_atol(const char *nptr)
 		i++;
 	if (nptr[i] == '+' || nptr[i] == '-')
 	{
+		if (nptr[i] == '-')
 			count *= -1;
+		i++;
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		if (num > max)
-			return (0);
 		num = num * 10 + (nptr[i] - 48);
 		i++;
+		if (num > INT_MAX || num < INT_MIN)
+			return (2147483648);
 	}
 	return (num * count);
 }
@@ -78,18 +78,17 @@ bool	ft_valid(int argc, char **argv)
 	i = 0;
 	while (i < argc)
 	{
-		nbr = ft_split(argv[i], ' ');
+		nbr = argv;
 		j = 0;
-		while (nbr[j])
+		while (argv[j])
 		{
-			if (!ft_isnbr(nbr[j]))
+			if (!ft_isnbr(argv[j]))
 			{
 				ft_free(nbr);
 				return (false);
 			}
 			j++;
 		}
-		ft_free(nbr);
 		i++;
 	}
 	return (true);
