@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_utils.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 15:44:35 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/02/20 14:57:23 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:56:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,22 @@ void	full_clear(char **str, t_stack *stack)
 		stack_clear(stack);
 		exit (0);
 	}
+}
+
+int	is_array_sorted(t_stack *stack)
+{
+	int	i;
+	t_node *temp;
+
+	i = 1;
+	temp = stack->head;
+	while (i < stack->lenght)
+	{
+		if (temp->value > temp->next->value)
+			return (0);
+		temp = temp->next;
+		i++;
+	}
+	ft_printf("%d", i);
+	return (i);
 }

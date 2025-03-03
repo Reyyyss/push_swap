@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements_push.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:06:14 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/02/21 17:34:02 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/27 13:33:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	ft_swap(t_stack *src, char flag, int both)
 {
-	t_node	*temp;
+	int	temp;
 
 	if(src->lenght < 2)
 		return;
 	else
 	{
-		temp = src->head;
-		src->head = src->head->next;
-		src->head->next = temp;
+		temp = src->head->value;
+		src->head->value = src->head->next->value;
+		src->head->next->value = temp;
 	}
 	if (both > 0)
 		ft_printf("s%c\n", flag);
@@ -32,26 +32,13 @@ void	ft_push(t_stack *src, t_stack *dest, char flag)
 {
 	t_node	*temp;
 
-	if(src->lenght == 0)
+	if (src->lenght == 0)
 		return;
-	else
-	{
-		temp = src->head;
-		src->head = src->head->next;
-		src->lenght--;
-		if(dest->lenght == 0)
-		{
-			dest->head = temp;
-			dest->tail = temp;
-			dest->lenght++;
-		}
-		else
-		{
-			temp->next = dest->head;
-			dest->head = temp;
-			dest->lenght++;
-		}
-	}
+	temp = src->head;
+	src->head = src->head->next;
+	src->lenght--;
+	ft_lst_addfront(dest, temp);
+	ft_printf("p%c\n", flag);
 }
 
 void	ft_rotate(t_stack *src, char flag, int both)
@@ -68,7 +55,7 @@ void	ft_rotate(t_stack *src, char flag, int both)
 		ft_printf("r%c\n", flag);
 }
 
-ft_reverse_rotate(t_stack *src, char flag, int both)
+void	ft_reverse_rotate(t_stack *src, char flag, int both)
 {
 	if (src->lenght < 2)
 		return ;

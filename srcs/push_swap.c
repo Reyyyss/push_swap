@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:52:43 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/21 15:15:22 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/01 02:31:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,13 @@ int main(int argc, char **argv)
 	//static	t_stack stack_b;
 	if (argc == 1)
 		return (write(2, "Error\n", 6), 1);
-	// else if (argc == 2)
-	// 	argv = ft_split(argv[1], ' ');
-	// else
-	// 	argv = &argv[1];
 	stack_a = check_args(&argv[1], argc - 1);
 	if (!stack_a.head)
-		ft_error("Error3\n");
-	print_stack(&stack_a, 'a');
+		ft_error("Error3\n");\
+	print_stack(&stack_a,  'a');
+	stack_a = *normalize(&stack_a);
+	print_stack(&stack_a,  'a');
+	// print_stack(&stack_b, 'b');
 	// ft_free(argv);
 	stack_clear(&stack_a);
 	return (0);
@@ -78,4 +77,37 @@ t_stack	check_args(char **argv, int argc)
 		i++;
 	}
 	return (stack);
+}
+
+t_stack	*normalize(t_stack *stack)
+{
+	t_stack	*rank_stack;
+	t_node *temp;
+	t_node *current;
+	t_node *new_node;
+	int rank;
+
+	
+	current = stack->head;
+	while (current)
+	{
+		rank = 1;
+		temp = stack->head;
+		while (temp)
+		{
+			if (current->value > temp->value)
+				rank++;
+			temp = temp->next;
+		}
+		new_node = ft_lst_new(rank);
+		if (!new_node)
+		{
+			free(rank_stack);
+			return NULL;
+		}
+		ft_lst_addback(rank_stack, new_node);
+		current = current->next;
+	}
+	print_stack(rank_stack,  'a');
+	return (rank_stack);
 }

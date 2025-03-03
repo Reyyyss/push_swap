@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:39 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/20 14:51:21 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:23:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,15 @@ void		full_clear(char **str, t_stack *stack);
 void		ft_error(char *msg);
 void		print_stack(t_stack *stack, char id);
 void		ft_free(char **str);
+void		ft_reverse_rotate(t_stack *src, char flag, int both);
+void		ft_swap(t_stack *src, char flag, int both);
+void		ft_push(t_stack *src, t_stack *dest, char flag);
+void		ft_rotate(t_stack *src, char flag, int both);
+int 		getmax(t_stack *stack);
+void    	radixsort(t_stack *stack_a, t_stack *stack_b);
+void    	negative_handle(t_stack *stack_a);
+int 		getmin(t_stack *stack);
+int			is_array_sorted(t_stack *stack);
+t_stack		*normalize(t_stack *stack);
 
 #endif

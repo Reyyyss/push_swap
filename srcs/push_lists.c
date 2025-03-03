@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_lists.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:25:04 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/02/20 17:22:11 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/01 02:31:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	ft_lst_addfront(t_stack *lst, t_node *new)
 		lst->tail = new;
 		new->prev = NULL;
 		new->next = NULL;
+		lst->lenght++;
+		return;
 	}
 	new->next = lst->head;
 	lst->head->prev = new;
