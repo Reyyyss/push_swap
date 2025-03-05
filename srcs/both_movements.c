@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 17:38:28 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/02/21 17:49:13 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/05 11:12:15 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	ft_reverse_rotate(&stack_a);
-	ft_reverse_rotate(&stack_b);
+	ft_reverse_rotate(&stack_a, 'a', 0);
+	ft_reverse_rotate(&stack_b, 'b', 0);
 	write (1, "rrr\n", 4);
 }
 
 void	ss(t_stack *stack_a, t_stack *stack_b)
 {
-	ft_swap(&stack_a);
-	ft_swap(&stack_b);
+	ft_swap(&stack_a, 'a', 0);
+	ft_swap(&stack_b, 'b', 0);
 	write(1, "ss\n", 3);
 }
 
 void	rr(t_stack *stack_a, t_stack *stack_b)
 {
-	ft_rotate(&stack_a);
-	ft_rotate(&stack_b);
+	ft_rotate(&stack_a, 'a', 0);
+	ft_rotate(&stack_b, 'b', 0);
 	write(1, "rr\n", 3);
 }

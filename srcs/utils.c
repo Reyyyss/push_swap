@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 15:44:35 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/02/27 16:56:06 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/03 16:42:47 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,5 @@ int	is_array_sorted(t_stack *stack)
 		temp = temp->next;
 		i++;
 	}
-	ft_printf("%d", i);
 	return (i);
 }

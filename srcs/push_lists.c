@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_lists.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:25:04 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/03/01 02:31:13 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/03 16:19:31 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,13 @@ void	stack_clear(t_stack *lst)
 void	print_stack(t_stack *stack, char id)
 {
 	t_node	*current;
-	ft_printf("stack %c:\n", id);
+	ft_printf("stack %c:\n\n", id);
 	current = stack->head;
 	while(current)
 	{
-		ft_printf("%i\n", current->value);
+		ft_printf("value:%i\n", current->value);
+		//ft_printf("rank:%i\n", current->rank);
 		current = current->next;
 	}
-	ft_printf("size:%i\n", stack->lenght);
+	ft_printf("\nsize:%i\n", stack->lenght);
 }

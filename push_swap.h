@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:39 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/27 17:23:42 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/05 11:13:36 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 typedef struct s_node
 {
 	int	value;
+	int	rank;
 	struct s_node *next;
 	struct s_node *prev;
 }	t_node;
@@ -61,6 +62,8 @@ void    	radixsort(t_stack *stack_a, t_stack *stack_b);
 void    	negative_handle(t_stack *stack_a);
 int 		getmin(t_stack *stack);
 int			is_array_sorted(t_stack *stack);
-t_stack		*normalize(t_stack *stack);
+void		normalize(t_stack *stack);
+void		sort_two(t_stack *stack_a);
+void		sort_three(t_stack *stack_a);
 
 #endif

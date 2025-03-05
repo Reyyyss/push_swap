@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:05 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/02/21 15:06:51 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/05 15:36:54 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ long	ft_atol(const char *nptr)
 		num = num * 10 + (nptr[i] - 48);
 		i++;
 		if (num > INT_MAX || num < INT_MIN)
-			return (2147483648);
+			break;
 	}
 	return (num * count);
 }

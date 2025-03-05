@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#    By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/16 11:31:27 by hcarrasq          #+#    #+#              #
-#    Updated: 2025/02/27 16:09:48 by marvin           ###   ########.fr        #
+#    Updated: 2025/03/03 16:45:24 by hcarrasq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRCS_FILES = push_swap.c aux_pswap.c push_lists.c movements_push.c utils.c radix_sort.c 
+SRCS_FILES = push_swap.c aux_pswap.c push_lists.c movements_push.c utils.c radix_sort.c sort.c
 
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 
