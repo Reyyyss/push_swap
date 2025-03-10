@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:52:43 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/03/05 15:41:13 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/06 16:25:19 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,17 @@ int main(int argc, char **argv)
 		return (write(2, "Error\n", 6), 1);
 	stack_a = check_args(&argv[1], argc - 1);
 	if (!stack_a.head)
-		ft_error("Error3\n");
+		ft_error("Error\n");
 	if (is_array_sorted(&stack_a))
-		return (0);
-	if (stack_a.lenght == 2)
-		sort_two(&stack_a);
-	else if (stack_a.lenght == 3)
 	{
-		print_stack(&stack_a,  'a');
-		sort_three(&stack_a);
-		print_stack(&stack_a,  'a');
+		stack_clear(&stack_a);
+		return (0);
 	}
-	print_stack(&stack_a,  'a');
 	normalize(&stack_a);
-	radixsort(&stack_a, &stack_b);
-	print_stack(&stack_a,  'a');
+	if (stack_a.lenght <= 5)
+		final_sort(&stack_a, &stack_b);
+	else
+		radixsort(&stack_a, &stack_b);
 	stack_clear(&stack_a);
 	return (0);
 }
@@ -50,9 +46,9 @@ bool	make_stack(t_stack *stack, char **str)
 	{
 		nbr = ft_atol(str[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
-			ft_error("Error1\n");
+			ft_error("Error\n");
 		if (!check_dups(stack, (int)nbr))
-			ft_error("Error2\n");
+			ft_error("Error\n");
 		node = ft_lst_new((int)nbr);
 		if (!node)
 			return (false);

@@ -12,46 +12,27 @@
 
 #include "../push_swap.h"
 
-int getmax(t_stack *stack)
-{
-    int max;
-    t_node *current;
-
-    current = stack->head;
-    max = current->value;
-    while (current)
-    {
-        if (max < current->value)
-            max = current->value;
-        current = current->next;            
-    }
-    return (max);
-}
-
 int get_bits(int max)
 {
-    int max_bits;
+	int max_bits;
 
-    max_bits = 0;
-    while(max > 0)
-    {
-        max >>= 1;
-        max_bits++;
-    }
-    return (max_bits);
+	max_bits = 0;
+	while(max > 0)
+	{
+		max >>= 1;
+		max_bits++;
+	}
+	return (max_bits);
 }
 
-void    radixsort(t_stack *stack_a, t_stack *stack_b)
+void	radixsort(t_stack *stack_a, t_stack *stack_b)
 {
-    int max_bits;
-    int max;
-    int i;
+	int max;
+	int i;
 
-    i = 0;
-    max = getmax(stack_a);
-    max_bits = get_bits(max);
-    while (i < max_bits)
-    {
+	i = 0;
+	while (is_array_sorted(stack_a) == 0)
+	{
         max = stack_a->lenght;
         while (max > 0)
         {
@@ -63,7 +44,7 @@ void    radixsort(t_stack *stack_a, t_stack *stack_b)
         }
         while (stack_b->lenght > 0)
             ft_push(stack_b, stack_a, 'a');
-        i++;
+		i++;
     }
 }
 

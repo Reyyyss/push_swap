@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:39 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/03/05 11:13:36 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:40:07 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,7 @@ int			is_array_sorted(t_stack *stack);
 void		normalize(t_stack *stack);
 void		sort_two(t_stack *stack_a);
 void		sort_three(t_stack *stack_a);
+void		sort_four_five(t_stack *stack_a, t_stack *stack_b);
+void		final_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif
