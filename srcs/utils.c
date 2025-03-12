@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 15:44:35 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/03/03 16:42:47 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/12 12:24:53 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_free(char **str)
 
 void	full_clear(char **str, t_stack *stack)
 {
-	if(!str)
+	if (!str)
 	{
 		stack_clear(stack);
 		exit (0);
@@ -45,8 +45,8 @@ void	full_clear(char **str, t_stack *stack)
 
 int	is_array_sorted(t_stack *stack)
 {
-	int	i;
-	t_node *temp;
+	int		i;
+	t_node	*temp;
 
 	i = 1;
 	temp = stack->head;

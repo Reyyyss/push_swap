@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 16:35:06 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/03/06 14:50:38 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/12 12:24:31 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,23 @@ void	sort_two(t_stack *stack_a)
 
 void	sort_three(t_stack *stack_a)
 {
-	if (stack_a->head->rank < stack_a->head->next->rank
-	&& stack_a->head->next->rank > stack_a->tail->rank
+	if (stack_a->head->rank < stack_a->head->next->rank \
+	&& stack_a->head->next->rank > stack_a->tail->rank \
 	&& stack_a->tail->rank > stack_a->head->rank)
 	{
 		ft_reverse_rotate(stack_a, 'a', 1);
 		ft_swap(stack_a, 'a', 1);
 	}
-	else if (stack_a->head->rank < stack_a->head->next->rank
-	&& stack_a->head->rank > stack_a->tail->rank
+	else if (stack_a->head->rank < stack_a->head->next->rank \
+	&& stack_a->head->rank > stack_a->tail->rank \
 	&& stack_a->tail->rank < stack_a->head->next->rank)
 		ft_reverse_rotate(stack_a, 'a', 1);
-	else if (stack_a->head->rank > stack_a->head->next->rank
-	&& stack_a->head->next->rank < stack_a->tail->rank
+	else if (stack_a->head->rank > stack_a->head->next->rank \
+	&& stack_a->head->next->rank < stack_a->tail->rank \
 	&& stack_a->tail->rank > stack_a->head->rank)
 		ft_swap(stack_a, 'a', 1);
-	else if (stack_a->head->rank > stack_a->head->next->rank
-	&& stack_a->head->next->rank < stack_a->tail->rank
+	else if (stack_a->head->rank > stack_a->head->next->rank \
+	&& stack_a->head->next->rank < stack_a->tail->rank \
 	&& stack_a->tail->rank < stack_a->head->rank)
 		ft_rotate(stack_a, 'a', 1);
 	else

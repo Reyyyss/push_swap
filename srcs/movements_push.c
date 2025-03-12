@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:06:14 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/03/06 11:38:44 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/12 12:18:02 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_swap(t_stack *src, char flag, int both)
 {
-	t_node *first;
-	t_node *second;
+	t_node	*first;
+	t_node	*second;
 
-	if(src->lenght < 2)
-		return;
+	if (src->lenght < 2)
+		return ;
 	first = src->head;
 	second = first->next;
 	first->next = second->next;
@@ -34,7 +34,7 @@ void	ft_push(t_stack *src, t_stack *dest, char flag)
 	t_node	*temp;
 
 	if (src->lenght == 0)
-		return;
+		return ;
 	temp = src->head;
 	src->head = src->head->next;
 	src->lenght--;

@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 12:25:04 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/03/06 14:43:02 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/12 12:19:49 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ t_node	*ft_lst_new(int content)
 
 void	ft_lst_addfront(t_stack *lst, t_node *new)
 {
-	if(!lst || !new)
-		return;
-	if(lst->head == NULL)
+	if (!lst || !new)
+		return ;
+	if (lst->head == NULL)
 	{
 		lst->head = new;
 		lst->tail = new;
 		new->prev = NULL;
 		new->next = NULL;
 		lst->lenght++;
-		return;
+		return ;
 	}
 	new->next = lst->head;
 	lst->head->prev = new;
@@ -48,7 +48,7 @@ void	ft_lst_addfront(t_stack *lst, t_node *new)
 void	ft_lst_addback(t_stack *lst, t_node *new)
 {
 	if (!lst || !new)
-		return;
+		return ;
 	if (lst->head == NULL)
 	{
 		lst->head = new;
@@ -68,8 +68,9 @@ void	ft_lst_addback(t_stack *lst, t_node *new)
 
 void	stack_clear(t_stack *lst)
 {
-	t_node *temp;
-	while(lst->head)
+	t_node	*temp;
+
+	while (lst->head)
 	{
 		temp = lst->head->next;
 		free(lst->head);
@@ -83,12 +84,12 @@ void	stack_clear(t_stack *lst)
 void	print_stack(t_stack *stack, char id)
 {
 	t_node	*current;
+
 	ft_printf("stack %c:\n\n", id);
 	current = stack->head;
-	while(current)
+	while (current)
 	{
 		ft_printf("value:%i\n", current->value);
-		//ft_printf("rank:%i\n", current->rank);
 		current = current->next;
 	}
 	ft_printf("\nsize:%i\n", stack->lenght);

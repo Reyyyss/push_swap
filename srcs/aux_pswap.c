@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:05 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/03/05 15:36:54 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/12 12:17:15 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ bool	check_dups(t_stack *stack, int nbr)
 
 long	ft_atol(const char *nptr)
 {
-	int	count;
-	int	i;
+	int		count;
+	int		i;
 	long	num;
 
 	num = 0;
@@ -64,7 +64,7 @@ long	ft_atol(const char *nptr)
 		num = num * 10 + (nptr[i] - 48);
 		i++;
 		if (num > INT_MAX || num < INT_MIN)
-			break;
+			break ;
 	}
 	return (num * count);
 }
@@ -72,8 +72,8 @@ long	ft_atol(const char *nptr)
 bool	ft_valid(int argc, char **argv)
 {
 	char	**nbr;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (i < argc)

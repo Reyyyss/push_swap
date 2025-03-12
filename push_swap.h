@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:39 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/03/06 14:40:07 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/12 12:12:06 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@
 
 typedef struct s_node
 {
-	int	value;
-	int	rank;
-	struct s_node *next;
-	struct s_node *prev;
+	int				value;
+	int				rank;
+	struct s_node	*next;
+	struct s_node	*prev;
 }	t_node;
 
 typedef struct s_stack
 {
-	int	lenght;
-	t_node *head;
-	t_node *tail;
+	int		lenght;
+	t_node	*head;
+	t_node	*tail;
 }	t_stack;
 
 bool		ft_isnbr(char *nbr);
@@ -57,10 +57,10 @@ void		ft_reverse_rotate(t_stack *src, char flag, int both);
 void		ft_swap(t_stack *src, char flag, int both);
 void		ft_push(t_stack *src, t_stack *dest, char flag);
 void		ft_rotate(t_stack *src, char flag, int both);
-int 		getmax(t_stack *stack);
-void    	radixsort(t_stack *stack_a, t_stack *stack_b);
-void    	negative_handle(t_stack *stack_a);
-int 		getmin(t_stack *stack);
+int			getmax(t_stack *stack);
+void		radixsort(t_stack *stack_a, t_stack *stack_b);
+void		negative_handle(t_stack *stack_a);
+int			getmin(t_stack *stack);
 int			is_array_sorted(t_stack *stack);
 void		normalize(t_stack *stack);
 void		sort_two(t_stack *stack_a);

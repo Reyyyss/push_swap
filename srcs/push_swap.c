@@ -6,16 +6,17 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:52:43 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/03/06 16:25:19 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/12 12:21:40 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	static	t_stack stack_a;
-	static	t_stack stack_b;
+	static t_stack	stack_a;
+	static t_stack	stack_b;
+
 	if (argc == 1)
 		return (write(2, "Error\n", 6), 1);
 	stack_a = check_args(&argv[1], argc - 1);
@@ -37,9 +38,9 @@ int main(int argc, char **argv)
 
 bool	make_stack(t_stack *stack, char **str)
 {
-	t_node *node;
+	t_node	*node;
 	long	nbr;
-	int i;
+	int		i;
 
 	i = 0;
 	while (str[i])
@@ -66,13 +67,13 @@ t_stack	check_args(char **argv, int argc)
 
 	stack = (t_stack){0};
 	i = 0;
-	while (i < argc)	
+	while (i < argc)
 	{
 		str = ft_split(argv[i], ' ');
 		if (!ft_valid(argc, str))
 		{
 			stack_clear(&stack);
-			return(stack);
+			return (stack);
 		}
 		if (!str)
 			full_clear(0, &stack);
@@ -86,9 +87,9 @@ t_stack	check_args(char **argv, int argc)
 
 void	normalize(t_stack *stack)
 {
-	t_node *temp;
-	t_node *current;
-	int rank;
+	t_node	*temp;
+	t_node	*current;
+	int		rank;
 
 	current = stack->head;
 	while (current)
