@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 15:44:35 by hcarrasq          #+#    #+#             */
-/*   Updated: 2025/03/12 12:24:53 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/24 14:18:07 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,11 @@ int	is_array_sorted(t_stack *stack)
 		i++;
 	}
 	return (i);
+}
+
+bool	wspace(int space)
+{
+	if ((space >= 9 && space <= 13) || space == 32)
+		return (true);
+	return (false);
 }

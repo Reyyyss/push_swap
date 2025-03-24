@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:53:39 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/03/12 12:12:06 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/24 14:05:39 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ bool		ft_isnbr(char *nbr);
 bool		ft_valid(int argc, char **argv);
 bool		check_dups(t_stack *stack, int nbr);
 bool		make_stack(t_stack *stack, char **str);
+bool		check_wspaces(char **argv);
+bool		wspace(int space);
 t_stack		check_args(char **argv, int argc);
 void		initialize_stack(t_stack *stack_a, t_stack *stack_b);
 void		ft_lst_addfront(t_stack *lst, t_node *new);

@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:21:05 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/03/12 12:17:15 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/24 14:17:29 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,24 @@ bool	ft_valid(int argc, char **argv)
 			j++;
 		}
 		i++;
+	}
+	return (true);
+}
+
+bool	check_wspaces(char **argv)
+{
+	int	i;
+	int	j;
+
+	j = 1;
+	while (argv[j])
+	{
+		i = 0;
+		while (argv[j][i] && wspace(argv[j][i]))
+			i++;
+		if (argv[j][i] == '\0')
+			return (false);
+		j++;
 	}
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: hcarrasq <hcarrasq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:52:43 by henrique-re       #+#    #+#             */
-/*   Updated: 2025/03/12 12:21:40 by hcarrasq         ###   ########.fr       */
+/*   Updated: 2025/03/24 14:16:45 by hcarrasq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	main(int argc, char **argv)
 	static t_stack	stack_b;
 
 	if (argc == 1)
+		return (write(2, "Error\n", 6), 1);
+	if (check_wspaces(argv) == false)
 		return (write(2, "Error\n", 6), 1);
 	stack_a = check_args(&argv[1], argc - 1);
 	if (!stack_a.head)
